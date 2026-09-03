@@ -21,36 +21,13 @@ import {
   Target,
   Users,
 } from 'lucide-react'
+import ProjectProof from './components/sections/ProjectProof'
 
 const services = [
-  {
-    icon: Target,
-    number: '01',
-    title: 'Project Management',
-    href: '/services/project-management',
-    text: 'Structured planning, coordination and delivery support that keeps projects focused, measurable and moving forward.',
-  },
-  {
-    icon: Factory,
-    number: '02',
-    title: 'Oil Field Planning',
-    href: '/services/oil-field-planning',
-    text: 'Planning and management support for oil field activities, helping teams align people, schedules, resources and execution.',
-  },
-  {
-    icon: HardHat,
-    number: '03',
-    title: 'Construction & Engineering',
-    href: '/services/construction',
-    text: 'From design coordination to completion, we bring disciplined project thinking to building and construction delivery.',
-  },
-  {
-    icon: MonitorCog,
-    number: '04',
-    title: 'Professional Training',
-    href: '/training',
-    text: 'Practical project management training including Microsoft Project, Fast Track Project Management and tailored sessions.',
-  },
+  { icon: Target, number: '01', title: 'Project Management', href: '/services/project-management', text: 'Structured planning, coordination and delivery support that keeps projects focused, measurable and moving forward.' },
+  { icon: Factory, number: '02', title: 'Oil Field Planning', href: '/services/oil-field-planning', text: 'Planning and management support for oil field activities, helping teams align people, schedules, resources and execution.' },
+  { icon: HardHat, number: '03', title: 'Construction & Engineering', href: '/services/construction', text: 'From design coordination to completion, we bring disciplined project thinking to building and construction delivery.' },
+  { icon: MonitorCog, number: '04', title: 'Professional Training', href: '/training', text: 'Practical project management training including Microsoft Project, Fast Track Project Management and tailored sessions.' },
 ]
 
 const process = [
@@ -63,27 +40,17 @@ const process = [
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeFaq, setActiveFaq] = useState(0)
-
   const closeMenu = () => setMenuOpen(false)
 
   return (
     <div className="site-shell">
       <header className="navbar">
-        <a className="brand" href="#home" onClick={closeMenu}>
-          <span className="brand-mark">S</span>
-          <span><strong>SEGOL</strong><small>ASSOCIATES</small></span>
-        </a>
+        <a className="brand" href="#home" onClick={closeMenu}><span className="brand-mark">S</span><span><strong>SEGOL</strong><small>ASSOCIATES</small></span></a>
         <nav className={menuOpen ? 'nav-links open' : 'nav-links'}>
-          <a href="#about" onClick={closeMenu}>About</a>
-          <a href="#services" onClick={closeMenu}>Services</a>
-          <a href="#brands" onClick={closeMenu}>Our Brands</a>
-          <a href="#training" onClick={closeMenu}>Training</a>
-          <a href="#contact" onClick={closeMenu}>Contact</a>
+          <a href="#about" onClick={closeMenu}>About</a><a href="#services" onClick={closeMenu}>Services</a><a href="#projects" onClick={closeMenu}>Projects</a><a href="#brands" onClick={closeMenu}>Our Brands</a><a href="#training" onClick={closeMenu}>Training</a><a href="#contact" onClick={closeMenu}>Contact</a>
         </nav>
         <a className="nav-cta" href="#contact">Start a conversation <ArrowRight size={16} /></a>
-        <button className="menu-button" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <span>×</span> : <span>☰</span>}
-        </button>
+        <button className="menu-button" aria-label="Toggle menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <span>×</span> : <span>☰</span>}</button>
       </header>
 
       <main>
@@ -93,50 +60,32 @@ function App() {
             <div className="eyebrow"><span /> Project. Build. Deliver.</div>
             <h1>Building projects.<br /><em>Managing possibilities.</em><br />Creating lasting value.</h1>
             <p className="hero-copy">A multidisciplinary team helping organizations plan with confidence, execute with discipline and deliver with purpose.</p>
-            <div className="hero-actions">
-              <a className="button primary" href="#services">Explore our services <ArrowRight size={18} /></a>
-              <a className="button ghost" href="#about"><Play size={15} fill="currentColor" /> Why Segol</a>
-            </div>
-            <div className="hero-proof">
-              <div><strong>01</strong><span>Project<br />Management</span></div><div><strong>02</strong><span>Oil Field<br />Planning</span></div><div><strong>03</strong><span>Construction<br />Delivery</span></div><div><strong>04</strong><span>Professional<br />Training</span></div>
-            </div>
+            <div className="hero-actions"><a className="button primary" href="#services">Explore our services <ArrowRight size={18} /></a><a className="button ghost" href="#about"><Play size={15} fill="currentColor" /> Why Segol</a></div>
+            <div className="hero-proof"><div><strong>01</strong><span>Project<br />Management</span></div><div><strong>02</strong><span>Oil Field<br />Planning</span></div><div><strong>03</strong><span>Construction<br />Delivery</span></div><div><strong>04</strong><span>Professional<br />Training</span></div></div>
           </div>
-          <div className="hero-art" aria-hidden="true">
-            <div className="blueprint-card"><div className="blueprint-top"><span>SEGOL / PROJECT 001</span><span>2026</span></div><div className="blueprint-lines" /><div className="building-shape"><span /><span /><span /><span /><span /></div><div className="blueprint-label"><small>DELIVERY SYSTEM</small><strong>PLAN → BUILD → DELIVER</strong></div></div>
-            <div className="floating-stat"><span className="stat-icon"><CheckCircle2 size={19} /></span><span><b>Built around clarity</b><small>Every project starts with a plan.</small></span></div>
-          </div>
+          <div className="hero-art" aria-hidden="true"><div className="blueprint-card"><div className="blueprint-top"><span>SEGOL / PROJECT 001</span><span>2026</span></div><div className="blueprint-lines" /><div className="building-shape"><span /><span /><span /><span /><span /></div><div className="blueprint-label"><small>DELIVERY SYSTEM</small><strong>PLAN → BUILD → DELIVER</strong></div></div><div className="floating-stat"><span className="stat-icon"><CheckCircle2 size={19} /></span><span><b>Built around clarity</b><small>Every project starts with a plan.</small></span></div></div>
         </section>
 
         <section className="trust-strip"><span>ONE GROUP. MULTIPLE POSSIBILITIES.</span><div><Building2 size={17} /> Infrastructure</div><div><Factory size={17} /> Energy & Oil</div><div><Sparkles size={17} /> Events</div><div><Droplets size={17} /> Water</div></section>
 
-        <section className="section about" id="about">
-          <div className="section-tag">01 / WHO WE ARE</div><div className="two-col"><div><h2>We turn complex ideas into <span>clear action.</span></h2></div><div className="about-copy"><p className="lead">Segol Associates brings project management, planning, construction and professional development together under one forward-looking group.</p><p>Our approach is simple: understand what matters, create a practical plan, coordinate the moving parts and stay focused on delivery. The result is a partner that helps clients move from intention to execution.</p><a className="text-link" href="#contact">Let&apos;s build something meaningful <ArrowRight size={16} /></a></div></div>
-          <div className="about-cards"><div><Users size={22} /><strong>People first</strong><span>Collaboration that keeps teams aligned.</span></div><div><Target size={22} /><strong>Purpose driven</strong><span>Every activity connected to the bigger goal.</span></div><div><ShieldCheck size={22} /><strong>Delivery focused</strong><span>Disciplined execution from start to finish.</span></div></div>
-        </section>
+        <section className="section about" id="about"><div className="section-tag">01 / WHO WE ARE</div><div className="two-col"><div><h2>We turn complex ideas into <span>clear action.</span></h2></div><div className="about-copy"><p className="lead">Segol Associates brings project management, planning, construction and professional development together under one forward-looking group.</p><p>Our approach is simple: understand what matters, create a practical plan, coordinate the moving parts and stay focused on delivery. The result is a partner that helps clients move from intention to execution.</p><a className="text-link" href="#contact">Let&apos;s build something meaningful <ArrowRight size={16} /></a></div></div><div className="about-cards"><div><Users size={22} /><strong>People first</strong><span>Collaboration that keeps teams aligned.</span></div><div><Target size={22} /><strong>Purpose driven</strong><span>Every activity connected to the bigger goal.</span></div><div><ShieldCheck size={22} /><strong>Delivery focused</strong><span>Disciplined execution from start to finish.</span></div></div></section>
 
-        <section className="section services-section" id="services">
-          <div className="section-tag">02 / WHAT WE DO</div><div className="section-heading-row"><h2>Expertise built around <span>delivery.</span></h2><p>From the first conversation to the final handover, our capabilities are designed to solve real project challenges.</p></div>
-          <div className="service-grid">{services.map(({ icon: Icon, number, title, href, text }) => (<article className="service-card" key={number}><div className="card-top"><span>{number}</span><Icon size={25} /></div><h3>{title}</h3><p>{text}</p><a href={href} aria-label={`Learn more about ${title}`}><ChevronRight size={18} /></a></article>))}</div>
-        </section>
+        <section className="section services-section" id="services"><div className="section-tag">02 / WHAT WE DO</div><div className="section-heading-row"><h2>Expertise built around <span>delivery.</span></h2><p>From the first conversation to the final handover, our capabilities are designed to solve real project challenges.</p></div><div className="service-grid">{services.map(({ icon: Icon, number, title, href, text }) => (<article className="service-card" key={number}><div className="card-top"><span>{number}</span><Icon size={25} /></div><h3>{title}</h3><p>{text}</p><a href={href} aria-label={`Learn more about ${title}`}><ChevronRight size={18} /></a></article>))}</div></section>
 
-        <section className="dark-section brands" id="brands">
-          <div className="section-tag light">03 / OUR BRANDS</div><div className="section-heading-row light-row"><h2>Three businesses.<br /><span>One standard.</span></h2><p>Specialized brands with a shared commitment to quality, thoughtful execution and customer experience.</p></div>
-          <div className="brand-grid">
-            <article className="brand-card topix"><div className="brand-card-top"><span className="mini-logo">T</span><span>EVENT MANAGEMENT</span></div><h3>Topix<br /><i>Event Management</i></h3><p>Events designed to feel effortless, memorable and distinctly yours — from celebrations to corporate experiences.</p><div className="brand-tags"><span>Weddings</span><span>Birthdays</span><span>Corporate</span><span>Party Rentals</span></div><a href="/brands/topix">Explore Topix <ArrowRight size={16} /></a></article>
-            <article className="brand-card water"><div className="water-orbit"><Droplets size={42} /></div><div className="brand-card-top"><span className="mini-logo">E</span><span>PURE / REFRESHING / RELIABLE</span></div><h3>Eternal Praise<br /><i>Water</i></h3><p>A dedicated water brand built around the everyday essentials: purity, refreshment and reliability.</p><div className="water-bottle"><span>EP</span></div><a href="/brands/eternal-praise-water">Discover the brand <ArrowRight size={16} /></a></article>
-          </div>
-        </section>
+        <ProjectProof />
 
-        <section className="section training" id="training"><div className="training-visual"><div className="training-window"><div className="window-bar"><span /><span /><span /><b>PROJECT CONTROL / 01</b></div><div className="timeline"><i /><i /><i /><i /><i /></div><div className="timeline-labels"><span>START</span><span>PLAN</span><span>EXECUTE</span><span>REVIEW</span><span>DELIVER</span></div><div className="training-badge"><Award size={19} /><span>SKILLS THAT<br /><b>MOVE PROJECTS</b></span></div></div></div><div className="training-content"><div className="section-tag">04 / PROFESSIONAL TRAINING</div><h2>Learn the tools.<br /><span>Lead the project.</span></h2><p>Practical training for professionals who want stronger project planning skills and greater confidence with modern project management tools.</p><div className="course-list"><div><span>01</span><b>Microsoft Project</b><small>Plan, schedule and track projects.</small></div><div><span>02</span><b>Fast Track Project Management</b><small>Build practical project management capability.</small></div><div><span>03</span><b>Custom Training</b><small>Sessions shaped around your team&apos;s needs.</small></div></div><a className="button dark-button" href="/training">Explore training <ArrowRight size={17} /></a></div></section>
+        <section className="dark-section brands" id="brands"><div className="section-tag light">05 / OUR BRANDS</div><div className="section-heading-row light-row"><h2>Three businesses.<br /><span>One standard.</span></h2><p>Specialized brands with a shared commitment to quality, thoughtful execution and customer experience.</p></div><div className="brand-grid"><article className="brand-card topix"><div className="brand-card-top"><span className="mini-logo">T</span><span>EVENT MANAGEMENT</span></div><h3>Topix<br /><i>Event Management</i></h3><p>Events designed to feel effortless, memorable and distinctly yours — from celebrations to corporate experiences.</p><div className="brand-tags"><span>Weddings</span><span>Birthdays</span><span>Corporate</span><span>Party Rentals</span></div><a href="/brands/topix">Explore Topix <ArrowRight size={16} /></a></article><article className="brand-card water"><div className="water-orbit"><Droplets size={42} /></div><div className="brand-card-top"><span className="mini-logo">E</span><span>PURE / REFRESHING / RELIABLE</span></div><h3>Eternal Praise<br /><i>Water</i></h3><p>A dedicated water brand built around the everyday essentials: purity, refreshment and reliability.</p><div className="water-bottle"><span>EP</span></div><a href="/brands/eternal-praise-water">Discover the brand <ArrowRight size={16} /></a></article></div></section>
 
-        <section className="process-section"><div className="section process-heading"><div className="section-tag">05 / OUR PROCESS</div><h2>A better way to move<br /><span>from idea to impact.</span></h2></div><div className="process-track">{process.map(([number, title, text], index) => (<div className="process-step" key={number}><div className="process-number">{number}</div><div className="process-line" /><h3>{title}</h3><p>{text}</p>{index < process.length - 1 && <ChevronRight className="process-arrow" size={18} />}</div>))}</div></section>
+        <section className="section training" id="training"><div className="training-visual"><div className="training-window"><div className="window-bar"><span /><span /><span /><b>PROJECT CONTROL / 01</b></div><div className="timeline"><i /><i /><i /><i /><i /></div><div className="timeline-labels"><span>START</span><span>PLAN</span><span>EXECUTE</span><span>REVIEW</span><span>DELIVER</span></div><div className="training-badge"><Award size={19} /><span>SKILLS THAT<br /><b>MOVE PROJECTS</b></span></div></div></div><div className="training-content"><div className="section-tag">06 / PROFESSIONAL TRAINING</div><h2>Learn the tools.<br /><span>Lead the project.</span></h2><p>Practical training for professionals who want stronger project planning skills and greater confidence with modern project management tools.</p><div className="course-list"><div><span>01</span><b>Microsoft Project</b><small>Plan, schedule and track projects.</small></div><div><span>02</span><b>Fast Track Project Management</b><small>Build practical project management capability.</small></div><div><span>03</span><b>Custom Training</b><small>Sessions shaped around your team&apos;s needs.</small></div></div><a className="button dark-button" href="/training">Explore training <ArrowRight size={17} /></a></div></section>
 
-        <section className="faq-section"><div className="section-tag">06 / WHY SEGOL</div><div className="faq-layout"><div><h2>Clarity is a <span>competitive advantage.</span></h2><p>Strong projects are rarely accidental. They are the product of good questions, clear decisions and disciplined follow-through.</p></div><div className="faq-list">{[['A single partner across multiple needs','Project management, planning, construction, training and brand services can be coordinated through one group.'],['Practical thinking over unnecessary complexity','We focus on useful plans, clear communication and actions that move work forward.'],['Built for people who need things to happen','Our mindset is delivery: understand the goal, organize the work and keep momentum.']].map(([q,a], index) => (<button className={activeFaq === index ? 'faq-item active' : 'faq-item'} key={q} onClick={() => setActiveFaq(activeFaq === index ? -1 : index)}><span><b>0{index + 1}</b>{q}</span><ChevronDown size={19} />{activeFaq === index && <p>{a}</p>}</button>))}</div></div></section>
+        <section className="process-section"><div className="section process-heading"><div className="section-tag">07 / OUR PROCESS</div><h2>A better way to move<br /><span>from idea to impact.</span></h2></div><div className="process-track">{process.map(([number, title, text], index) => (<div className="process-step" key={number}><div className="process-number">{number}</div><div className="process-line" /><h3>{title}</h3><p>{text}</p>{index < process.length - 1 && <ChevronRight className="process-arrow" size={18} />}</div>))}</div></section>
 
-        <section className="contact-section" id="contact"><div className="contact-pattern" /><div className="contact-content"><div className="section-tag light">07 / START A PROJECT</div><h2>Have a project<br /><span>in mind?</span></h2><p>Tell us what you&apos;re building, planning or organizing. Let&apos;s explore what the right next step looks like.</p><div className="contact-actions"><a className="button primary" href="mailto:hello@segolassociates.com">Send an enquiry <ArrowRight size={18} /></a><a className="contact-line" href="tel:+2340000000000"><Phone size={17} /> +234 000 000 0000</a></div></div><div className="contact-info"><div><Mail size={19} /><span><small>Email</small>hello@segolassociates.com</span></div><div><Phone size={19} /><span><small>Phone</small>+234 000 000 0000</span></div><div><MapPin size={19} /><span><small>Location</small>Nigeria</span></div></div></section>
+        <section className="faq-section"><div className="section-tag">08 / WHY SEGOL</div><div className="faq-layout"><div><h2>Clarity is a <span>competitive advantage.</span></h2><p>Strong projects are rarely accidental. They are the product of good questions, clear decisions and disciplined follow-through.</p></div><div className="faq-list">{[['A single partner across multiple needs','Project management, planning, construction, training and brand services can be coordinated through one group.'],['Practical thinking over unnecessary complexity','We focus on useful plans, clear communication and actions that move work forward.'],['Built for people who need things to happen','Our mindset is delivery: understand the goal, organize the work and keep momentum.']].map(([q,a], index) => (<button className={activeFaq === index ? 'faq-item active' : 'faq-item'} key={q} onClick={() => setActiveFaq(activeFaq === index ? -1 : index)}><span><b>0{index + 1}</b>{q}</span><ChevronDown size={19} />{activeFaq === index && <p>{a}</p>}</button>))}</div></div></section>
+
+        <section className="contact-section" id="contact"><div className="contact-pattern" /><div className="contact-content"><div className="section-tag light">09 / START A PROJECT</div><h2>Have a project<br /><span>in mind?</span></h2><p>Tell us what you&apos;re building, planning or organizing. Let&apos;s explore what the right next step looks like.</p><div className="contact-actions"><a className="button primary" href="mailto:hello@segolassociates.com">Send an enquiry <ArrowRight size={18} /></a><a className="contact-line" href="tel:+2340000000000"><Phone size={17} /> +234 000 000 0000</a></div></div><div className="contact-info"><div><Mail size={19} /><span><small>Email</small>hello@segolassociates.com</span></div><div><Phone size={19} /><span><small>Phone</small>+234 000 000 0000</span></div><div><MapPin size={19} /><span><small>Location</small>Nigeria</span></div></div></section>
       </main>
 
-      <footer className="footer"><div className="footer-brand"><span className="brand-mark">S</span><div><strong>SEGOL ASSOCIATES</strong><small>BUILDING POSSIBILITIES.</small></div></div><div className="footer-links"><a href="#about">About</a><a href="#services">Services</a><a href="#brands">Brands</a><a href="#training">Training</a><a href="#contact">Contact</a></div><div className="footer-social"><a href="#contact" aria-label="Instagram"><Camera size={17} /></a><a href="#contact" aria-label="WhatsApp"><MessageCircle size={17} /></a></div><small className="copyright">© 2026 Segol Associates. All rights reserved.</small></footer>
+      <footer className="footer"><div className="footer-brand"><span className="brand-mark">S</span><div><strong>SEGOL ASSOCIATES</strong><small>BUILDING POSSIBILITIES.</small></div></div><div className="footer-links"><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#brands">Brands</a><a href="#training">Training</a><a href="#contact">Contact</a></div><div className="footer-social"><a href="#contact" aria-label="Instagram"><Camera size={17} /></a><a href="#contact" aria-label="WhatsApp"><MessageCircle size={17} /></a></div><small className="copyright">© 2026 Segol Associates. All rights reserved.</small></footer>
     </div>
   )
 }
