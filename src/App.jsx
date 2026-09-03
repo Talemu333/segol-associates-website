@@ -3,6 +3,7 @@ import {
   ArrowRight,
   Award,
   Building2,
+  Camera,
   CheckCircle2,
   ChevronDown,
   ChevronRight,
@@ -10,7 +11,6 @@ import {
   Droplets,
   Factory,
   HardHat,
-  Instagram,
   Mail,
   MapPin,
   Menu,
@@ -265,7 +265,7 @@ function App() {
       <footer className="footer">
         <div className="footer-brand"><span className="brand-mark">S</span><div><strong>SEGOL ASSOCIATES</strong><small>BUILDING POSSIBILITIES.</small></div></div>
         <div className="footer-links"><a href="#about">About</a><a href="#services">Services</a><a href="#brands">Brands</a><a href="#training">Training</a><a href="#contact">Contact</a></div>
-        <div className="footer-social"><a href="#contact" aria-label="Instagram"><Instagram size={17} /></a><a href="#contact" aria-label="WhatsApp"><MessageCircle size={17} /></a></div>
+        <div className="footer-social"><a href="#contact" aria-label="Instagram"><Camera size={17} /></a><a href="#contact" aria-label="WhatsApp"><MessageCircle size={17} /></a></div>
         <small className="copyright">© 2026 Segol Associates. All rights reserved.</small>
       </footer>
     </div>
