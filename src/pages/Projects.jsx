@@ -1,0 +1,119 @@
+import { ArrowRight, Building2, CheckCircle2, MapPin, Quote, ShieldCheck } from 'lucide-react'
+import { Link } from 'react-router'
+import SiteHeader from '../components/layout/SiteHeader'
+import SiteFooter from '../components/layout/SiteFooter'
+
+const projects = [
+  {
+    number: '01',
+    category: 'RESIDENTIAL CONSTRUCTION',
+    title: 'Modern Residential Development',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1500&q=88',
+    location: 'Location to be supplied',
+    scope: 'Planning · Coordination · Construction',
+  },
+  {
+    number: '02',
+    category: 'COMMERCIAL CONSTRUCTION',
+    title: 'Contemporary Commercial Facility',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1500&q=88',
+    location: 'Location to be supplied',
+    scope: 'Project Management · Site Delivery · Handover',
+  },
+  {
+    number: '03',
+    category: 'ENGINEERING & SITE DELIVERY',
+    title: 'Structured Site Execution',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1500&q=88',
+    location: 'Location to be supplied',
+    scope: 'Planning · Supervision · Progress Control',
+  },
+  {
+    number: '04',
+    category: 'PROJECT MANAGEMENT',
+    title: 'Project Coordination & Delivery',
+    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1500&q=88',
+    location: 'Location to be supplied',
+    scope: 'Programme · Resources · Stakeholder Coordination',
+  },
+]
+
+const trustSteps = [
+  ['01', 'See the work', 'Project photography and clear project descriptions show prospects what Segol is capable of delivering.'],
+  ['02', 'Understand the delivery', 'Each project can explain scope, responsibilities, challenges, approach and completion status.'],
+  ['03', 'Hear from clients', 'Approved testimonials and client references can sit beside the relevant work once supplied.'],
+]
+
+export default function Projects() {
+  return (
+    <div className="projects-page">
+      <SiteHeader />
+      <main>
+        <section className="projects-hero">
+          <div className="projects-hero-image" />
+          <div className="projects-hero-overlay" />
+          <div className="projects-hero-content">
+            <span className="eyebrow">SEGOL ASSOCIATES / PROJECT PORTFOLIO</span>
+            <h1>Work that gives<br /><em>confidence.</em></h1>
+            <p>A project portfolio designed to make Segol's construction, engineering and project-management capability visible before the first conversation.</p>
+            <div className="projects-hero-actions">
+              <a href="#portfolio" className="button light-button">Explore projects <ArrowRight size={17} /></a>
+              <Link to="/contact" className="text-link light-link">Discuss a project <ArrowRight size={16} /></Link>
+            </div>
+          </div>
+          <div className="projects-hero-meta"><span>PORTFOLIO / 2026</span><span>CONSTRUCTION · ENGINEERING · DELIVERY</span></div>
+        </section>
+
+        <section className="projects-intro section">
+          <div className="section-tag">01 / WHY THIS PAGE MATTERS</div>
+          <div className="projects-intro-grid">
+            <h2>Let the work<br /><span>do the talking.</span></h2>
+            <div>
+              <p className="lead">For a construction or project-management company, a beautiful website is not enough. Prospects need evidence: what has been built, what was managed, where the work happened and what clients thought about the experience.</p>
+              <p>This portfolio is intentionally structured around that evidence. The demo images below will be replaced with Segol's approved project records before paid advertising goes live.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="projects-portfolio section" id="portfolio">
+          <div className="projects-section-head"><div><span className="section-tag">02 / SELECTED WORK</span><h2>Projects, presented<br /><span>with context.</span></h2></div><p>Every project card can become a deeper case study with real photographs, client, location, scope, timeline and outcomes.</p></div>
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <article className="portfolio-project" key={project.number}>
+                <div className="portfolio-project-image"><img src={project.image} alt={`${project.category} project showcase`} loading="lazy" /><span>{project.number}</span></div>
+                <div className="portfolio-project-body">
+                  <div className="portfolio-project-top"><small>{project.category}</small><Building2 size={18} /></div>
+                  <h3>{project.title}</h3>
+                  <div className="portfolio-project-meta"><span><MapPin size={15} />{project.location}</span><span>{project.scope}</span></div>
+                  <div className="portfolio-project-note"><CheckCircle2 size={16} /> Project record to be completed with verified client information</div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="projects-trust">
+          <div className="section projects-trust-inner">
+            <div className="projects-trust-copy"><span className="section-tag">03 / THE TRUST LAYER</span><h2>From proof<br /><span>to confidence.</span></h2><p>The strongest version of this page will combine completed work, client names, genuine reviews and measurable project outcomes — all approved by Segol before publication.</p></div>
+            <div className="projects-trust-steps">{trustSteps.map(([number, title, text]) => <div className="projects-trust-step" key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></div>)}</div>
+          </div>
+        </section>
+
+        <section className="projects-clients section">
+          <div className="projects-clients-head"><div><span className="section-tag">04 / CLIENTS & REVIEWS</span><h2>Real relationships.<br /><span>Real words.</span></h2></div><p>We will not invent client names, logos or testimonials. Once Segol supplies approved records, this becomes one of the strongest sections on the site.</p></div>
+          <div className="projects-client-grid">
+            <div className="client-placeholder-card"><ShieldCheck size={22} /><strong>CLIENT LOGOS</strong><span>Approved client and partner logos will appear here.</span></div>
+            <div className="review-placeholder-card"><Quote size={27} /><p>“An approved testimonial will appear here, ideally describing the project, Segol's role and the outcome delivered.”</p><div><span className="review-avatar">C</span><span><strong>Client name</strong><small>Organisation / Project</small></span></div></div>
+          </div>
+        </section>
+
+        <section className="projects-cta section">
+          <div><span className="section-tag">05 / START A PROJECT</span><h2>Planning something<br /><span>worth building?</span></h2></div>
+          <div><p>Tell us what you are planning, where the project is and what you need managed. We can start the conversation from there.</p><Link className="button dark-button" to="/contact">Start a project conversation <ArrowRight size={17} /></Link></div>
+        </section>
+      </main>
+      <SiteFooter />
+      <div className="projects-demo-note">DEMO CONTENT / Replace project images, names, locations, client logos, testimonials and outcomes with Segol's verified records before advertising.</div>
+    </div>
+  )
+}
