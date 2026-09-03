@@ -5,6 +5,7 @@ import './index.css'
 import './multipage.css'
 import './image-polish.css'
 import './home-polish.css'
+import './brands-hub.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
