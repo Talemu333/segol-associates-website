@@ -10,6 +10,7 @@ const Brands = lazy(() => import('./pages/Brands'))
 const Topix = lazy(() => import('./pages/Topix'))
 const Water = lazy(() => import('./pages/Water'))
 const Projects = lazy(() => import('./pages/Projects'))
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'))
 const Contact = lazy(() => import('./pages/Contact'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
@@ -59,6 +60,7 @@ export default function AppRoutes() {
           <Route path="/services/oil-field-planning" element={<ServiceDetail type="oil" />} />
           <Route path="/services/construction" element={<ServiceDetail type="construction" />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/training" element={<Training />} />
           <Route path="/brands" element={<Brands />} />
           <Route path="/brands/topix" element={<Topix />} />
