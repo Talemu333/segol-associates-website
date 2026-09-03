@@ -45,15 +45,11 @@ function NavigationBridge() {
   return null
 }
 
-function PageLoader() {
-  return <div className="page-loader" role="status" aria-live="polite"><span>SEGOL ASSOCIATES</span><i /></div>
-}
-
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <NavigationBridge />
-      <Suspense fallback={<PageLoader />}>
+      <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/about" element={<About />} />
