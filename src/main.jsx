@@ -4,6 +4,7 @@ import AppRoutes from './routes'
 import './index.css'
 import './multipage.css'
 import './image-polish.css'
+import './home-polish.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
