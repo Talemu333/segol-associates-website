@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router'
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router'
 import App from './App'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -10,9 +11,33 @@ import Water from './pages/Water'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 
+const legacyRoutes = { '#home': '/', '#about': '/about', '#services': '/services', '#brands': '/brands', '#training': '/training', '#contact': '/contact' }
+
+function NavigationBridge() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  useEffect(() => {
+    const handleClick = (event) => {
+      const anchor = event.target.closest('a[href^="#"]')
+      if (!anchor) return
+      const destination = legacyRoutes[anchor.getAttribute('href')]
+      if (!destination) return
+      event.preventDefault()
+      navigate(destination)
+    }
+    document.addEventListener('click', handleClick)
+    return () => document.removeEventListener('click', handleClick)
+  }, [navigate])
+
+  useEffect(() => window.scrollTo({ top: 0, behavior: 'instant' }), [location.pathname])
+  return null
+}
+
 export default function AppRoutes() {
   return (
     <BrowserRouter>
+      <NavigationBridge />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
