@@ -1,15 +1,16 @@
-import { useEffect } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router'
 import App from './App'
-import About from './pages/About'
-import Services from './pages/Services'
-import ServiceDetail from './pages/ServiceDetail'
-import Training from './pages/Training'
-import Brands from './pages/Brands'
-import Topix from './pages/Topix'
-import Water from './pages/Water'
-import Contact from './pages/Contact'
-import NotFound from './pages/NotFound'
+
+const About = lazy(() => import('./pages/About'))
+const Services = lazy(() => import('./pages/Services'))
+const ServiceDetail = lazy(() => import('./pages/ServiceDetail'))
+const Training = lazy(() => import('./pages/Training'))
+const Brands = lazy(() => import('./pages/Brands'))
+const Topix = lazy(() => import('./pages/Topix'))
+const Water = lazy(() => import('./pages/Water'))
+const Contact = lazy(() => import('./pages/Contact'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 const legacyRoutes = {
   '#home': '/',
@@ -28,46 +29,46 @@ function NavigationBridge() {
     const handleClick = (event) => {
       const anchor = event.target.closest('a[href^="#"]')
       if (!anchor) return
-
       const destination = legacyRoutes[anchor.getAttribute('href')]
       if (!destination) return
-
       event.preventDefault()
       navigate(destination)
     }
-
     document.addEventListener('click', handleClick)
-
-    return () => {
-      document.removeEventListener('click', handleClick)
-    }
+    return () => document.removeEventListener('click', handleClick)
   }, [navigate])
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [location.pathname])
 
   return null
+}
+
+function PageLoader() {
+  return <div className="page-loader" role="status" aria-live="polite"><span>SEGOL ASSOCIATES</span><i /></div>
 }
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <NavigationBridge />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/services/project-management" element={<ServiceDetail type="project" />} />
-        <Route path="/services/oil-field-planning" element={<ServiceDetail type="oil" />} />
-        <Route path="/services/construction" element={<ServiceDetail type="construction" />} />
-        <Route path="/training" element={<Training />} />
-        <Route path="/brands" element={<Brands />} />
-        <Route path="/brands/topix" element={<Topix />} />
-        <Route path="/brands/eternal-praise-water" element={<Water />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/project-management" element={<ServiceDetail type="project" />} />
+          <Route path="/services/oil-field-planning" element={<ServiceDetail type="oil" />} />
+          <Route path="/services/construction" element={<ServiceDetail type="construction" />} />
+          <Route path="/training" element={<Training />} />
+          <Route path="/brands" element={<Brands />} />
+          <Route path="/brands/topix" element={<Topix />} />
+          <Route path="/brands/eternal-praise-water" element={<Water />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   )
 }
