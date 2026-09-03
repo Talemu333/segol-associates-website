@@ -15,7 +15,7 @@ export default function InnerPage({ eyebrow, title, accent, intro, children, dar
             <h1>{title}<br /><em>{accent}</em></h1>
             <p>{intro}</p>
           </div>
-          <div className="inner-hero-number">SEGOL / 0{Math.floor(Math.random() * 8) + 1}</div>
+          <div className="inner-hero-number">SEGOL / 2026</div>
         </section>
         {children}
         <section className="inner-cta">
