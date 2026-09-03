@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ArrowRight, Menu, X } from 'lucide-react'
 import { Link, NavLink } from 'react-router'
+import '../../navigation-polish.css'
 
 const links = [
   ['/', 'Home'],
