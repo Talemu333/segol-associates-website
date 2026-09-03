@@ -10,17 +10,22 @@ const services = [
 ]
 
 const gallery = [
-  ['https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1500&q=85', 'Elegant reception setup'],
-  ['https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1100&q=85', 'Wedding celebration'],
-  ['https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1100&q=85', 'Live event atmosphere'],
-  ['https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1400&q=85', 'Beautifully styled occasion'],
+  ['https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=88', 'Elegant wedding reception'],
+  ['https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1200&q=88', 'Wedding tablescape'],
+  ['https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=88', 'Live event production'],
+  ['https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=88', 'Celebration styling'],
+  ['https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=88', 'Corporate event experience'],
+  ['https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=88', 'Guests and atmosphere'],
 ]
 
+const clients = ['Corporate & private clients', 'Wedding celebrations', 'Family occasions', 'Kiddies events', 'Social celebrations', 'Business gatherings']
+
 export default function Topix() {
-  return <InnerPage eyebrow="08 / TOPIX EVENT MANAGEMENT" title="Make the moment" accent="worth remembering." intro="Professional event management, styling and support for celebrations and corporate experiences.">
-    <section className="inner-section brand-detail-hero topix-detail"><div className="brand-detail-symbol">T</div><div><span className="section-tag">TOPIX / EVENT MANAGEMENT</span><h2>Plan beautifully.<br /><span>Experience effortlessly.</span></h2><p className="lead">From the first concept to the final guest, Topix brings structure, creativity and coordination to the moments that matter.</p><Link className="button dark-button" to="/contact">Plan an event <ArrowRight size={17}/></Link></div></section>
+  return <InnerPage eyebrow="08 / TOPIX EVENT MANAGEMENT" title="Moments made" accent="memorable." intro="Professional event management, styling and support for celebrations, corporate occasions and unforgettable guest experiences.">
+    <section className="inner-section brand-detail-hero topix-detail"><div className="topix-hero-image"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=88" alt="Elegant event reception setup"/><div className="image-badge">TOPIX / EVENTS</div></div><div><span className="section-tag">TOPIX EVENT MANAGEMENT</span><h2>Plan beautifully.<br /><span>Experience effortlessly.</span></h2><p className="lead">From concept and styling to coordination and on-site support, Topix brings creativity and structure to the moments that matter.</p><Link className="button dark-button" to="/contact">Plan an event <ArrowRight size={17}/></Link></div></section>
     <section className="inner-section brand-services">{services.map(([num, title, text]) => <article key={title}><span>{num}</span><CalendarDays size={21}/><h3>{title}</h3><p>{text}</p></article>)}</section>
-    <section className="inner-section topix-gallery"><div className="section-tag">SELECTED EVENT WORK</div><h2>A glimpse of the <span>experience.</span></h2><p>Gallery presentation for weddings, celebrations, corporate occasions and event setups.</p><div className="topix-gallery-grid">{gallery.map(([src, alt]) => <img src={src} alt={alt} key={src} loading="lazy" />)}</div><p className="portfolio-note">Demo imagery for client presentation — replace with Topix&apos;s actual event photography before launch.</p></section>
-    <section className="inner-section quote-panel"><Heart size={27}/><span className="section-tag">THE TOPIX STANDARD</span><h2>Every detail has a role.<br /><span>Every guest feels it.</span></h2><p>Thoughtful planning, polished presentation and calm coordination are the foundation of a memorable event.</p><div><Star size={17}/> <Star size={17}/> <Star size={17}/> <Star size={17}/> <Star size={17}/></div></section>
+    <section className="inner-section topix-gallery"><div className="section-tag">OUR EVENT PORTFOLIO</div><h2>See the <span>experience.</span></h2><p className="section-intro-wide">A visual-first showcase of event styling, celebrations, guest experiences and production moments.</p><div className="topix-gallery-grid topix-masonry">{gallery.map(([src, alt], index) => <figure className={index === 0 ? 'featured' : ''} key={src}><img src={src} alt={alt} loading="lazy"/><figcaption>{alt}</figcaption></figure>)}</div><p className="portfolio-note">Demo imagery for client presentation. Replace with Topix's actual event photography before launch.</p></section>
+    <section className="inner-section topix-trust"><div><span className="section-tag">EVENT CATEGORIES</span><h2>Built for <span>different moments.</span></h2><p>Topix can present its experience by occasion, making it easy for visitors to find the kind of event they want to plan.</p></div><div className="client-pill-grid">{clients.map((client, i) => <div key={client}><b>0{i + 1}</b><span>{client}</span></div>)}</div></section>
+    <section className="inner-section quote-panel"><Heart size={27}/><span className="section-tag">THE TOPIX STANDARD</span><h2>Every detail has a role.<br /><span>Every guest feels it.</span></h2><p>Thoughtful planning, polished presentation and calm coordination are the foundation of a memorable event.</p><div><Star size={17}/><Star size={17}/><Star size={17}/><Star size={17}/><Star size={17}/></div></section>
   </InnerPage>
 }
