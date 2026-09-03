@@ -11,7 +11,14 @@ import Water from './pages/Water'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 
-const legacyRoutes = { '#home': '/', '#about': '/about', '#services': '/services', '#brands': '/brands', '#training': '/training', '#contact': '/contact' }
+const legacyRoutes = {
+  '#home': '/',
+  '#about': '/about',
+  '#services': '/services',
+  '#brands': '/brands',
+  '#training': '/training',
+  '#contact': '/contact',
+}
 
 function NavigationBridge() {
   const navigate = useNavigate()
@@ -21,16 +28,25 @@ function NavigationBridge() {
     const handleClick = (event) => {
       const anchor = event.target.closest('a[href^="#"]')
       if (!anchor) return
+
       const destination = legacyRoutes[anchor.getAttribute('href')]
       if (!destination) return
+
       event.preventDefault()
       navigate(destination)
     }
+
     document.addEventListener('click', handleClick)
-    return () => document.removeEventListener('click', handleClick)
+
+    return () => {
+      document.removeEventListener('click', handleClick)
+    }
   }, [navigate])
 
-  useEffect(() => window.scrollTo(0, 0), [location.pathname])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
   return null
 }
 
