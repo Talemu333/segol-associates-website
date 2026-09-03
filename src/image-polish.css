@@ -1,0 +1,93 @@
+/* Image presentation system */
+
+:root{--image-radius:18px;--image-shadow:0 24px 60px rgba(23,32,42,.14)}
+
+/* Shared image treatment: fixed frames + object-fit prevent stretched or awkward photos. */
+.site-shell img,.inner-site img{display:block;max-width:100%;}
+
+.hero-art,.training-visual,.detail-photo,.topix-hero-image,.water-hero-visual{position:relative;overflow:hidden;border-radius:var(--image-radius);isolation:isolate}
+
+.hero-art{min-height:560px;background-position:center!important;background-size:cover!important;box-shadow:var(--image-shadow)}
+.hero-art:after,.training-visual:after,.detail-photo:after,.topix-hero-image:after,.water-hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,18,23,.02) 25%,rgba(12,18,23,.32) 100%);pointer-events:none;z-index:1}
+
+.training-photo,.detail-photo,.topix-hero-image,.water-hero-visual{width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:var(--image-radius);background:#dfe4e6;box-shadow:var(--image-shadow)}
+.training-photo img,.detail-photo img,.topix-hero-image img,.water-hero-visual img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s cubic-bezier(.2,.65,.2,1),filter .4s ease}
+.training-photo:hover img,.detail-photo:hover img,.topix-hero-image:hover img,.water-hero-visual:hover img{transform:scale(1.035);filter:saturate(1.04)}
+
+.training-photo-badge,.detail-photo-label,.image-badge,.water-product-stamp{position:absolute;left:20px;bottom:20px;z-index:3;display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(17,24,32,.72);backdrop-filter:blur(12px);color:#fff;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase}
+.training-photo-badge span,.water-product-stamp span{line-height:1.35}
+
+/* Homepage business cards: image-led, readable and intentionally framed. */
+.site-shell .brand-card{position:relative;overflow:hidden;min-height:500px;border-radius:22px;background-position:center!important;background-size:cover!important;box-shadow:0 20px 55px rgba(0,0,0,.18)}
+.site-shell .brand-card:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,18,.02) 10%,rgba(8,13,18,.88) 88%);z-index:0;pointer-events:none}
+.site-shell .brand-card.water:before{background:linear-gradient(180deg,rgba(231,238,240,.06) 8%,rgba(231,238,240,.94) 88%)}
+.site-shell .brand-card>*{position:relative;z-index:2}
+.site-shell .brand-card .brand-card-top{margin-bottom:28px}
+.site-shell .brand-card h3{max-width:560px}
+
+/* Service cards get controlled image washes instead of faint/unstructured backgrounds. */
+.site-shell .service-card{position:relative;overflow:hidden;border-radius:16px;background-position:center!important;background-size:cover!important}
+.site-shell .service-card:before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.88);transition:background .3s ease;z-index:0}
+.site-shell .service-card>*{position:relative;z-index:1}
+.site-shell .service-card:hover:before{background:rgba(255,255,255,.78)}
+
+/* Topix gallery: consistent frames with a deliberate editorial rhythm. */
+.topix-gallery-grid{grid-template-columns:1.15fr .85fr .85fr!important;grid-auto-rows:245px!important;gap:16px!important}
+.topix-gallery-grid figure,.water-gallery-grid figure,.training-image-grid figure{position:relative;overflow:hidden;margin:0;border-radius:16px;background:#dfe4e6;box-shadow:0 12px 30px rgba(23,32,42,.08)}
+.topix-gallery-grid figure{height:100%}
+.topix-gallery-grid figure img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s ease}
+.topix-gallery-grid figure:hover img,.water-gallery-grid figure:hover img,.training-image-grid figure:hover img{transform:scale(1.045)}
+.topix-gallery-grid figcaption,.water-gallery-grid figcaption,.training-image-grid figcaption{position:absolute;left:12px;right:12px;bottom:12px;padding:10px 12px;border-radius:10px;background:linear-gradient(90deg,rgba(12,18,23,.78),rgba(12,18,23,.28));color:#fff;font-size:.7rem;letter-spacing:.04em;opacity:0;transform:translateY(8px);transition:.25s ease;pointer-events:none}
+.topix-gallery-grid figure:hover figcaption,.water-gallery-grid figure:hover figcaption,.training-image-grid figure:hover figcaption{opacity:1;transform:translateY(0)}
+
+/* Water process/product imagery. */
+.water-process-grid{gap:14px!important;background:transparent!important}
+.water-process-grid article{padding:0!important;overflow:hidden;border-radius:16px;background:#fff;box-shadow:0 12px 30px rgba(23,32,42,.08)}
+.water-process-grid article img{width:100%;height:210px!important;object-fit:cover;object-position:center}
+.process-caption{padding:25px 25px 28px}
+.process-caption p{font-size:.92rem}
+
+.water-gallery-grid{grid-template-columns:1.2fr .9fr .9fr!important;gap:16px!important}
+.water-gallery-grid figure:first-child{grid-row:span 2}
+.water-gallery-grid img{width:100%;height:100%!important;min-height:250px;object-fit:cover;object-position:center}
+.water-gallery-grid figure{min-height:280px}
+
+/* Detail pages: make the hero image feel like a designed feature, not a loose photo. */
+.detail-visual-layout{grid-template-columns:minmax(420px,1.05fr) 1fr!important;gap:70px!important}
+.detail-photo{aspect-ratio:4/3}
+.detail-case-image{display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+.detail-case-image>img{width:100%;height:430px;object-fit:cover;object-position:center;border-radius:20px;box-shadow:var(--image-shadow)}
+
+/* Training gallery */
+.training-image-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.training-image-grid figure{height:360px}
+.training-image-grid img{width:100%;height:100%;object-fit:cover;object-position:center}
+
+@media(max-width:900px){
+  .hero-art{min-height:430px}
+  .training-photo,.detail-photo,.topix-hero-image,.water-hero-visual{aspect-ratio:16/11}
+  .detail-visual-layout,.detail-case-image{grid-template-columns:1fr!important;gap:35px!important}
+  .detail-case-image>img{height:320px}
+  .topix-gallery-grid{grid-template-columns:1fr 1fr!important;grid-auto-rows:230px!important}
+  .topix-gallery-grid figure:first-child{grid-row:span 2}
+  .water-gallery-grid{grid-template-columns:1fr 1fr!important}
+  .water-gallery-grid figure:first-child{grid-row:span 2}
+  .training-image-grid figure{height:280px}
+}
+
+@media(max-width:560px){
+  .hero-art{min-height:360px;border-radius:14px}
+  .training-photo,.detail-photo,.topix-hero-image,.water-hero-visual{aspect-ratio:4/3;border-radius:14px}
+  .site-shell .brand-card{min-height:450px;border-radius:16px}
+  .topix-gallery-grid,.water-gallery-grid,.training-image-grid{grid-template-columns:1fr!important}
+  .topix-gallery-grid{grid-auto-rows:270px!important}
+  .topix-gallery-grid figure:first-child,.water-gallery-grid figure:first-child{grid-row:auto}
+  .water-gallery-grid figure{min-height:270px}
+  .training-image-grid figure{height:270px}
+  .topix-gallery-grid figcaption,.water-gallery-grid figcaption,.training-image-grid figcaption{opacity:1;transform:none}
+  .training-photo-badge,.detail-photo-label,.image-badge,.water-product-stamp{left:12px;bottom:12px;font-size:.58rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .training-photo img,.detail-photo img,.topix-hero-image img,.water-hero-visual img,.topix-gallery-grid figure img,.water-gallery-grid figure img,.training-image-grid figure img{transition:none}
+}
