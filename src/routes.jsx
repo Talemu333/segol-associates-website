@@ -30,7 +30,7 @@ function NavigationBridge() {
     return () => document.removeEventListener('click', handleClick)
   }, [navigate])
 
-  useEffect(() => window.scrollTo({ top: 0, behavior: 'instant' }), [location.pathname])
+  useEffect(() => window.scrollTo(0, 0), [location.pathname])
   return null
 }
 
