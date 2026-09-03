@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import AppRoutes from './routes'
 import './index.css'
 import './multipage.css'
+import './image-polish.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
