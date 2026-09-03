@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import AppRoutes from './routes'
 import './index.css'
+import './multipage.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
