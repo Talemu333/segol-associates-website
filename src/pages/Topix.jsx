@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowRight, CakeSlice, CalendarDays, CheckCircle2, Gift, Heart, Sparkles, Users, UtensilsCrossed, X, ZoomIn } from 'lucide-react'
+import { ArrowRight, CakeSlice, CheckCircle2, Gift, Heart, Sparkles, Users, UtensilsCrossed, X, ZoomIn } from 'lucide-react'
 import InnerPage from '../components/layout/InnerPage'
 
 const categories = [
@@ -58,7 +58,7 @@ export default function Topix() {
 
   return <InnerPage theme="topix" eyebrow="08 / TOPIX EVENT MANAGEMENT" title="Moments made" accent="memorable." intro="Professional event management, styling and support for celebrations, corporate occasions and unforgettable guest experiences.">
     <div className="topix-premium">
-      <section className="topix-hero">
+      <section className="topix-hero topix-hero-top">
         <div className="topix-hero-copy">
           <span className="topix-kicker">TOPIX EVENT MANAGEMENT</span>
           <h2>We create moments worth <em>remembering.</em></h2>
@@ -76,7 +76,7 @@ export default function Topix() {
 
       <section className="topix-section topix-packages"><div className="topix-packages-head"><div><span className="topix-kicker">WAYS TO WORK WITH TOPIX</span><h2>Support that fits <span>your event.</span></h2></div><p>Start with the level of support that feels right. The final scope can be tailored after your enquiry.</p></div><div className="topix-package-grid">{packages.map(([num, title, text, items], index) => <article className={index === 0 ? 'topix-package featured-package' : 'topix-package'} key={title}><div className="topix-package-number"><b>{num}</b>{index === 0 && <span>MOST REQUESTED</span>}</div><Sparkles size={21}/><h3>{title}</h3><p>{text}</p><ul>{items.map(item => <li key={item}><CheckCircle2 size={16}/>{item}</li>)}</ul><button className="topix-package-button" type="button" onClick={scrollToEnquiry}>Discuss this option <ArrowRight size={16}/></button></article>)}</div><p className="topix-pricing-note">No fixed prices are shown in this demo. Event scope, guest count, date, venue and requirements can all affect the final proposal.</p></section>
 
-      <section className="topix-section" id="topix-gallery"><div className="topix-gallery-head"><div><span className="topix-kicker">OUR EVENT PORTFOLIO</span><h2>See the <span>experience.</span></h2></div><p>A visual-first showcase of styling, celebrations, guest experiences and production moments. Replace these demo photographs with Topix's approved portfolio before launch.</p></div><div className="topix-gallery-filters" role="group" aria-label="Filter portfolio by event type">{filters.map(item => <button key={item} type="button" className={filter === item ? 'active' : ''} onClick={() => setFilter(item)}>{item}</button>)}</div><div className="topix-gallery-grid">{visibleGallery.map(([src, alt, type]) => <figure key={src}><button className="topix-gallery-image-button" type="button" onClick={() => setLightbox({ src, alt })} aria-label={`View ${alt}`}><img src={src} alt={alt} loading="lazy" /><span><ZoomIn size={19} /></span></button><figcaption><span>{type}</span>{alt}</figcaption></figure>)}</div></section>
+      <section className="topix-section topix-portfolio-section" id="topix-gallery"><div className="topix-gallery-head"><div><span className="topix-kicker">OUR EVENT PORTFOLIO</span><h2>See the <span>experience.</span></h2></div><p>A visual-first showcase of styling, celebrations, guest experiences and production moments. Replace these demo photographs with Topix's approved portfolio before launch.</p></div><div className="topix-gallery-filters" role="group" aria-label="Filter portfolio by event type">{filters.map(item => <button key={item} type="button" className={filter === item ? 'active' : ''} onClick={() => setFilter(item)}>{item}</button>)}</div><div className="topix-gallery-grid">{visibleGallery.map(([src, alt, type]) => <figure key={src}><button className="topix-gallery-image-button" type="button" onClick={() => setLightbox({ src, alt })} aria-label={`View ${alt}`}><img src={src} alt={alt} loading="lazy" /><span><ZoomIn size={19} /></span></button><figcaption><span>{type}</span>{alt}</figcaption></figure>)}</div></section>
 
       <section className="topix-section topix-process"><span className="topix-kicker">HOW WE WORK</span><h2>Simple process.<br /><span>Strong execution.</span></h2><div className="topix-process-grid">{steps.map(([num, title, text]) => <article className="topix-step" key={num}><b>{num}</b><h3>{title}</h3><p>{text}</p></article>)}</div></section>
 
