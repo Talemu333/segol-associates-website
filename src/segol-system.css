@@ -1,0 +1,33 @@
+:root{--segol-navy:#0c1421;--segol-navy-2:#111c2a;--segol-gold:#c7a66a;--segol-gold-light:#d8b979;--segol-cream:#f5f4f0;--segol-surface:#eeede8;--segol-text:#111827;--segol-muted:#69717d;--segol-line:#dfe1e4;--segol-max:1280px}
+
+/* Segol corporate system: keep the two customer-facing brands free to develop their own visual identities. */
+.site-shell,.inner-site:not(.brand-site){--accent:var(--segol-gold);--accent-light:var(--segol-gold-light);--navy:var(--segol-navy)}
+.site-shell .section-tag,.inner-site:not(.brand-site) .section-tag{color:var(--accent)}
+.site-shell .section h2 span,.inner-site:not(.brand-site) .inner-section h2 span,.inner-site:not(.brand-site) .inner-cta h2 span{color:#a9844a}
+.site-shell .button.primary,.inner-site:not(.brand-site) .button.primary{background:var(--accent)}
+.site-shell .button.primary:hover,.inner-site:not(.brand-site) .button.primary:hover{background:var(--accent-light)}
+.site-shell .dark-button,.inner-site:not(.brand-site) .dark-button{background:var(--segol-navy);color:#fff}
+.site-shell .text-link,.inner-site:not(.brand-site) .text-link{border-color:var(--accent)}
+.site-shell :where(a,button,input,select,textarea):focus-visible,.inner-site:not(.brand-site) :where(a,button,input,select,textarea):focus-visible{outline-color:var(--accent)}
+
+/* Consistent page rhythm */
+.site-shell main>.section,.site-shell main>.dark-section,.site-shell main>.process-section,.site-shell main>.faq-section{scroll-margin-top:82px}
+.site-shell .section,.site-shell .dark-section,.site-shell .faq-section{padding-top:96px;padding-bottom:96px}
+.site-shell .section-heading-row{margin-bottom:44px}
+.site-shell .about-cards{margin-top:54px}
+.site-shell .service-card{min-height:315px}
+.site-shell .brand-card{min-height:420px}
+.site-shell .training{gap:80px}
+.site-shell .process-track{padding-bottom:96px}
+
+/* The homepage JSX order is the source of truth. */
+.site-shell main{display:flex;flex-direction:column}
+.site-shell main>.hero,.site-shell main>.trust-strip,.site-shell main>.about,.site-shell main>.services-section,.site-shell main>.project-proof-section,.site-shell main>.brands,.site-shell main>.training,.site-shell main>.process-section,.site-shell main>.faq-section,.site-shell main>.contact-section{order:initial}
+
+/* Keep the corporate navigation visually tied to the Segol palette. */
+.site-shell .inner-navbar{border-bottom-color:rgba(255,255,255,.1)}
+.site-shell .inner-navbar .brand-mark{background:var(--segol-gold);color:var(--segol-navy)}
+.site-shell .inner-navbar .nav-cta{background:var(--segol-gold);border-color:var(--segol-gold);color:var(--segol-navy)}
+
+@media(max-width:900px){.site-shell .section,.site-shell .dark-section,.site-shell .faq-section{padding-top:76px;padding-bottom:76px}.site-shell .about-cards{margin-top:38px}.site-shell .brand-card{min-height:390px}.site-shell .training{gap:48px}}
+@media(max-width:560px){.site-shell .section,.site-shell .dark-section,.site-shell .faq-section{padding-top:64px;padding-bottom:64px}.site-shell .brand-card{min-height:360px}.site-shell .section-heading-row{margin-bottom:32px}.site-shell .hero-proof{display:grid;grid-template-columns:1fr 1fr;row-gap:16px}.site-shell .hero-proof div{width:auto;margin-right:10px}}
