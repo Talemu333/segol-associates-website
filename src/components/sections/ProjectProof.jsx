@@ -2,52 +2,52 @@ import { ArrowRight, Building2, CheckCircle2, Quote, Star } from 'lucide-react'
 import { Link } from 'react-router'
 
 // Demo presentation only. Replace project names, locations, client names,
-// photos and testimonials with Segol's verified records before advertising.
+// photos and testimonials with Segol's verified records before launch.
 const projects = [
   {
-    type: 'BUILDING & CONSTRUCTION',
-    title: 'Residential Development',
-    location: 'Project location to be supplied',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85',
-  },
-  {
-    type: 'COMMERCIAL CONSTRUCTION',
-    title: 'Commercial Building',
-    location: 'Project location to be supplied',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85',
-  },
-  {
     type: 'PROJECT MANAGEMENT',
-    title: 'Project Delivery & Coordination',
-    location: 'Project location to be supplied',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85',
+    title: 'Project Planning & Coordination',
+    location: 'Project details to be supplied',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=85',
   },
   {
-    type: 'ENGINEERING & SITE DELIVERY',
-    title: 'Construction Execution',
-    location: 'Project location to be supplied',
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=85',
+    type: 'OIL FIELD PLANNING',
+    title: 'Field Planning & Execution Support',
+    location: 'Project details to be supplied',
+    image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=85',
+  },
+  {
+    type: 'CONSTRUCTION DELIVERY',
+    title: 'Building & Construction Delivery',
+    location: 'Project details to be supplied',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=85',
+  },
+  {
+    type: 'PROFESSIONAL TRAINING',
+    title: 'Project Management Capability',
+    location: 'Training programme details to be supplied',
+    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=85',
   },
 ]
 
 const proofPoints = [
   ['01', 'Planning before execution', 'Every engagement is structured around scope, resources, programme, risk and clear responsibilities.'],
-  ['02', 'Visible project coordination', 'Clients get a clearer view of what needs to happen, who owns it and what comes next.'],
-  ['03', 'Built for accountability', 'Our delivery mindset keeps attention on quality, communication, progress and handover.'],
+  ['02', 'Connected capability', 'Different disciplines are supported by the same practical approach to planning, coordination and delivery.'],
+  ['03', 'Built for accountability', 'Our delivery mindset keeps attention on quality, communication, progress and completion.'],
 ]
 
 export default function ProjectProof() {
   return (
     <section className="project-proof-section" id="projects">
       <div className="project-proof-top section">
-        <div className="section-tag">03 / SELECTED PROJECTS</div>
+        <div className="section-tag">04 / SELECTED WORK</div>
         <div className="project-proof-heading">
           <div>
-            <h2>Don&apos;t just take<br /><span>our word for it.</span></h2>
+            <h2>Capability should be<br /><span>easy to understand.</span></h2>
           </div>
           <div>
-            <p className="lead">Construction and project management are trust businesses. Before a client commits, they need to see the kind of work, thinking and delivery discipline behind the promise.</p>
-            <p>We are building this page around Segol&apos;s strongest proof: real project photography, project context, approved client names and genuine feedback.</p>
+            <p className="lead">The strongest proof of a delivery partner is the way its capabilities connect to real work. This section gives each of Segol's four core disciplines equal visual weight.</p>
+            <p>For launch, these cards can become verified case studies with approved project photography, scope, client context, timelines and outcomes.</p>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default function ProjectProof() {
         {projects.map((project) => (
           <article className="project-card" key={project.title}>
             <div className="project-image">
-              <img src={project.image} alt="Construction project showcase" loading="lazy" />
+              <img src={project.image} alt={`${project.type} showcase`} loading="lazy" />
               <span>{project.type}</span>
             </div>
             <div className="project-card-body">
@@ -72,13 +72,13 @@ export default function ProjectProof() {
 
       <div className="proof-banner section">
         <div className="proof-banner-copy">
-          <span className="proof-kicker"><CheckCircle2 size={16} /> CAPABILITY YOU CAN SEE</span>
-          <h3>From the first plan to the final handover.</h3>
-          <p>For the launch version, this area will become a detailed portfolio with project scope, client, location, timeline, photographs and outcomes — so serious prospects can evaluate Segol before making contact.</p>
+          <span className="proof-kicker"><CheckCircle2 size={16} /> ONE DELIVERY STANDARD</span>
+          <h3>Different challenges. One disciplined approach.</h3>
+          <p>As real project information becomes available, this area can evolve into a portfolio that demonstrates how Segol plans, coordinates, executes and delivers across its core capabilities.</p>
         </div>
         <div className="proof-banner-actions">
-          <Link className="button dark-button" to="/projects">View full project portfolio <ArrowRight size={17} /></Link>
-          <Link className="text-link" to="/services/construction">Explore construction capability <ArrowRight size={16} /></Link>
+          <Link className="button dark-button" to="/projects">View project portfolio <ArrowRight size={17} /></Link>
+          <Link className="text-link" to="/services">Explore all capabilities <ArrowRight size={16} /></Link>
         </div>
       </div>
 
@@ -93,21 +93,21 @@ export default function ProjectProof() {
 
       <div className="client-trust section">
         <div className="client-trust-intro">
-          <div className="section-tag">04 / CLIENT TRUST</div>
-          <h2>Real clients.<br /><span>Real words.</span></h2>
-          <p>We will only publish testimonials and client names that Segol has approved. No invented reviews, no anonymous praise presented as fact.</p>
-          <div className="rating-note"><Star size={17} fill="currentColor" /><span>Verified testimonials will be added from the client&apos;s records.</span></div>
+          <div className="section-tag">PROJECT CREDIBILITY</div>
+          <h2>Real work.<br /><span>Real evidence.</span></h2>
+          <p>We will only publish testimonials, client names and project outcomes that Segol has approved. No invented reviews or unsupported claims.</p>
+          <div className="rating-note"><Star size={17} fill="currentColor" /><span>Verified project evidence will be added from the client's records.</span></div>
         </div>
         <div className="testimonial-card">
           <Quote size={28} />
-          <p className="testimonial-placeholder">“This is where an approved client testimonial will appear — ideally mentioning the project, the challenge Segol handled and the outcome delivered.”</p>
+          <p className="testimonial-placeholder">“An approved client testimonial can appear here, ideally describing the challenge, Segol's contribution and the outcome delivered.”</p>
           <div className="testimonial-author"><span className="author-avatar">C</span><div><strong>Client name</strong><small>Project / Organisation</small></div></div>
         </div>
       </div>
 
       <div className="project-proof-note section">
         <strong>CONTENT NOTE FOR LAUNCH</strong>
-        <span>Demo images are being used while the real Segol portfolio is collected. Replace these cards with approved project photos, client names, locations, delivery dates and testimonials before running paid ads.</span>
+        <span>Demo images are being used while the real Segol portfolio is collected. Replace these cards with approved project photos, client names, locations, delivery dates and testimonials before public launch.</span>
       </div>
     </section>
   )
