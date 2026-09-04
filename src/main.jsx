@@ -21,6 +21,7 @@ import './topix-packages.css'
 import './topix-gallery.css'
 import './topix-enquiry-polish.css'
 import './topix-color-consistency.css'
+import './segol-balance.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
