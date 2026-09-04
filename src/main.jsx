@@ -27,6 +27,7 @@ import './about-premium.css'
 import './about-reasons.css'
 import './about-hero-polish.css'
 import './services-page.css'
+import './training-premium.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
