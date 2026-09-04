@@ -23,7 +23,15 @@ const reasons = [
 ]
 
 export default function About() {
-  return <InnerPage eyebrow="01 / WHO WE ARE" title="Built around" accent="better delivery." intro="Segol Associates brings project management, oil field planning, construction delivery and professional training together under one disciplined delivery mindset." dark>
+  return <InnerPage pageClass="about-page" eyebrow="01 / WHO WE ARE" title="Built around" accent="better delivery." intro="Segol Associates brings project management, oil field planning, construction delivery and professional training together under one disciplined delivery mindset." dark>
+    <section className="about-hero-note">
+      <div className="inner-section about-hero-note-inner">
+        <span className="section-tag">THE SEGOL PERSPECTIVE</span>
+        <p>One company. Four core capabilities. A consistent focus on helping people plan better, coordinate smarter and deliver with confidence.</p>
+        <div className="about-hero-note-index"><span>01</span><span>ABOUT SEGOL</span></div>
+      </div>
+    </section>
+
     <section className="about-statement inner-section">
       <div className="about-statement-copy">
         <span className="section-tag">OUR STORY</span>
