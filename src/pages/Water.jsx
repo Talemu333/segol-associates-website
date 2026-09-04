@@ -29,10 +29,10 @@ export default function Water() {
   const [orderProduct, setOrderProduct] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
-  const chooseProduct = (productName) => {
-    setOrderProduct(productName)
+  const scrollToOrder = (productName = '') => {
+    if (productName) setOrderProduct(productName)
     setSubmitted(false)
-    document.getElementById('order')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    requestAnimationFrame(() => document.getElementById('order')?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
   }
 
   const handleOrder = (event) => {
@@ -41,13 +41,7 @@ export default function Water() {
   }
 
   return (
-    <InnerPage
-      theme="water"
-      hideHero
-      ctaEyebrow="ORDER / ENQUIRE / PARTNER"
-      ctaTitle={<>Stay refreshed.<br /><span>Choose Eternal Praise.</span></>}
-      ctaLabel="Make an enquiry"
-    >
+    <InnerPage theme="water" hideHero ctaEyebrow="ORDER / ENQUIRE / PARTNER" ctaTitle={<>Stay refreshed.<br /><span>Choose Eternal Praise.</span></>} ctaLabel="Make an enquiry">
       <section className="ep-water-hero">
         <img className="ep-water-hero-bg" src={`${EP_ASSET}hero-bg-4.jpg`} alt="Eternal Praise Water hero" />
         <div className="ep-water-hero-overlay" />
@@ -57,7 +51,7 @@ export default function Water() {
           <h1>Eternal Praise<br /><em>Water</em></h1>
           <p>Clean, refreshing water for everyday life — from homes and offices to hospitality, celebrations and business supply.</p>
           <div className="ep-water-actions">
-            <a className="button ep-primary-button" href="#order">Place an order <ArrowRight size={17} /></a>
+            <button className="button ep-primary-button ep-order-button" type="button" onClick={() => scrollToOrder()}>Place an order <ArrowRight size={17} /></button>
             <Link className="button ep-outline-button" to="/contact">Contact us</Link>
           </div>
         </div>
@@ -73,13 +67,16 @@ export default function Water() {
           {products.map((product) => (
             <article className="ep-product-card" key={product.name}>
               <div className="ep-product-image"><img src={product.image} alt={product.name} /><span>{product.tag}</span></div>
-              <div className="ep-product-copy"><h3>{product.name}</h3><p>{product.description}</p><button type="button" onClick={() => chooseProduct(product.name)}>Order / enquire <ArrowRight size={16} /></button></div>
+              <div className="ep-product-copy">
+                <h3>{product.name}</h3><p>{product.description}</p>
+                <button className="ep-product-order-button" type="button" onClick={() => scrollToOrder(product.name)}>Order / enquire <ArrowRight size={16} /></button>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="ep-order-strip" aria-labelledby="order-heading">
+      <section className="ep-order-strip" id="order" aria-labelledby="order-heading">
         <div className="ep-order-strip-inner">
           <div>
             <span className="section-tag">ETERNAL PRAISE / ORDER</span>
@@ -91,7 +88,7 @@ export default function Water() {
               <div className="ep-order-option"><strong>Events &amp; bulk</strong><span>Water for celebrations, hospitality and larger needs.</span></div>
             </div>
           </div>
-          <a className="button" href="#order-form">Start an enquiry <ArrowRight size={17} /></a>
+          <button className="button ep-order-strip-button" type="button" onClick={() => document.getElementById('order-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>Start an enquiry <ArrowRight size={17} /></button>
         </div>
       </section>
 
@@ -133,7 +130,7 @@ export default function Water() {
       </section>
 
       <section className="ep-health">
-        <div className="ep-health-copy"><span className="section-tag">HEALTH / HYDRATION</span><h2>Make hydration part of <span>every day.</span></h2><p>Water is a simple part of healthy daily routines. This section gives Eternal Praise room for useful hydration education, practical tips and future brand content.</p><a className="ep-text-link" href="#order">Talk to us <ArrowRight size={16} /></a></div>
+        <div className="ep-health-copy"><span className="section-tag">HEALTH / HYDRATION</span><h2>Make hydration part of <span>every day.</span></h2><p>Water is a simple part of healthy daily routines. This section gives Eternal Praise room for useful hydration education, practical tips and future brand content.</p><button className="ep-text-link ep-health-order-link" type="button" onClick={() => scrollToOrder()}>Talk to us <ArrowRight size={16} /></button></div>
         <div className="ep-health-card"><Waves size={30} /><strong>PURE</strong><span>REFRESH · HYDRATE · REPEAT</span></div>
       </section>
 
