@@ -19,6 +19,7 @@ import './eternal-praise-order.css'
 import './topix-premium.css'
 import './topix-packages.css'
 import './topix-gallery.css'
+import './topix-enquiry-polish.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
