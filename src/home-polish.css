@@ -1,9 +1,7 @@
 /* Homepage layout + navigation polish */
 
 html { scroll-padding-top: 82px; }
-
 .site-shell { overflow: visible; }
-
 .site-shell .navbar { position: sticky; top: 0; min-height: 82px; background: rgba(12,20,33,.96); border-bottom: 1px solid rgba(255,255,255,.10); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 8px 30px rgba(0,0,0,.12); }
 .site-shell .navbar .brand-mark { border-color: rgba(199,166,106,.65); color: #d8b979; background: rgba(255,255,255,.025); }
 .site-shell .navbar .brand small { color: #aeb8c5; }
@@ -21,17 +19,23 @@ html { scroll-padding-top: 82px; }
 .site-shell .hero-proof div:hover { transform:translateY(-3px); border-color:rgba(199,166,106,.4); }
 .site-shell .trust-strip { position:relative; z-index:2; }
 
-/* Brand cards: keep the section premium without making the visual blocks dominate the homepage. */
+/* Brand showcase: real-looking demo photography, but kept compact enough to support the page hierarchy. */
 .site-shell .brands { padding-top:105px; padding-bottom:115px; }
 .site-shell .brands .section-heading-row { align-items:end; }
 .site-shell .brands .brand-grid { margin-top:48px; }
-.site-shell .brand-card { min-height:430px; border:1px solid rgba(255,255,255,.10); background-blend-mode:multiply; }
-.site-shell .brand-card h3 { margin-top:75px; }
-.site-shell .brand-card.water h3 { margin-top:62px; }
-.site-shell .water-orbit { width:145px; height:145px; right:-28px; top:58px; }
-.site-shell .water-orbit:after { width:102px; height:102px; }
-.site-shell .water-bottle { right:58px; bottom:-38px; width:58px; height:190px; }
-.site-shell .brand-card::after { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.08) 50%,transparent 80%); transform:translateX(-120%); transition:transform .7s ease; }
+.site-shell .brand-card { min-height:400px; border:1px solid rgba(255,255,255,.10); background-blend-mode:multiply; }
+.site-shell .brand-card::before { content:''; position:absolute; inset:0; background-position:center; background-size:cover; opacity:.22; pointer-events:none; transition:transform .7s ease,opacity .35s ease; }
+.site-shell .brand-card.topix::before { background-image:linear-gradient(135deg,rgba(199,166,106,.95),rgba(28,22,13,.5)),url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=85'); }
+.site-shell .brand-card.water::before { background-image:linear-gradient(135deg,rgba(223,233,238,.75),rgba(66,110,135,.25)),url('https://images.unsplash.com/photo-1564419320461-6870880221ad?auto=format&fit=crop&w=1200&q=85'); opacity:.28; }
+.site-shell .brand-card:hover::before { transform:scale(1.035); opacity:.34; }
+.site-shell .brand-card > * { position:relative; z-index:2; }
+.site-shell .brand-card h3 { margin-top:62px; }
+.site-shell .brand-card.water h3 { margin-top:50px; }
+.site-shell .brand-card p { max-width:450px; }
+.site-shell .water-orbit { width:125px; height:125px; right:-24px; top:48px; z-index:1 !important; }
+.site-shell .water-orbit:after { width:88px; height:88px; }
+.site-shell .water-bottle { right:52px; bottom:-34px; width:54px; height:170px; z-index:1 !important; }
+.site-shell .brand-card::after { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.08) 50%,transparent 80%); transform:translateX(-120%); transition:transform .7s ease; z-index:3; }
 .site-shell .brand-card:hover::after { transform:translateX(120%); }
 .site-shell .services-section .service-card,.site-shell .about-cards > div { border-color:rgba(23,32,42,.10); }
 .site-shell .training { position:relative; }
@@ -47,17 +51,17 @@ html { scroll-padding-top: 82px; }
   .site-shell .nav-links a::after { display:none; }
   .site-shell .hero { min-height:auto; padding-top:70px; }
   .site-shell .hero-art { position:relative; right:auto; top:auto; width:100%; height:390px; margin-top:35px; border-radius:2px; }
-  .site-shell .brand-card { min-height:400px; }
+  .site-shell .brand-card { min-height:380px; }
 }
 @media (max-width:560px) {
   html { scroll-padding-top:72px; }
   .site-shell .hero { padding-top:55px; }
   .site-shell .hero-art { height:330px; }
   .site-shell .brands { padding-top:75px; padding-bottom:80px; }
-  .site-shell .brand-card { min-height:360px; padding:28px; }
-  .site-shell .brand-card h3,.site-shell .brand-card.water h3 { margin-top:55px; }
-  .site-shell .water-orbit { width:115px; height:115px; right:-25px; top:48px; }
-  .site-shell .water-orbit:after { width:80px; height:80px; }
-  .site-shell .water-bottle { right:40px; height:160px; width:50px; }
+  .site-shell .brand-card { min-height:350px; padding:28px; }
+  .site-shell .brand-card h3,.site-shell .brand-card.water h3 { margin-top:48px; }
+  .site-shell .water-orbit { width:105px; height:105px; right:-22px; top:42px; }
+  .site-shell .water-orbit:after { width:72px; height:72px; }
+  .site-shell .water-bottle { right:36px; height:145px; width:46px; }
 }
-@media (prefers-reduced-motion:reduce) { .site-shell .hero-content,.site-shell .brand-card::after { animation:none; transition:none; } }
+@media (prefers-reduced-motion:reduce) { .site-shell .hero-content,.site-shell .brand-card::after,.site-shell .brand-card::before { animation:none; transition:none; } }
