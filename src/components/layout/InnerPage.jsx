@@ -3,11 +3,12 @@ import { Link } from 'react-router'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 
-export default function InnerPage({ eyebrow, title, accent, intro, children, dark = false, theme = 'segol', hideHero = false, ctaEyebrow = 'READY WHEN YOU ARE', ctaTitle = <>Let&apos;s move the idea<br /><span>forward.</span></>, ctaLabel = 'Start a conversation' }) {
+export default function InnerPage({ eyebrow, title, accent, intro, children, dark = false, theme = 'segol', hideHero = false, pageClass = '', ctaEyebrow = 'READY WHEN YOU ARE', ctaTitle = <>Let&apos;s move the idea<br /><span>forward.</span></>, ctaLabel = 'Start a conversation' }) {
   const themeClass = theme === 'segol' ? '' : ` brand-site brand-site-${theme}`
+  const pageModifier = pageClass ? ` ${pageClass}` : ''
 
   return (
-    <div className={`inner-site${themeClass}`}>
+    <div className={`inner-site${themeClass}${pageModifier}`}>
       <SiteHeader />
       <main>
         {!hideHero && <section className={dark ? 'inner-hero dark-inner' : 'inner-hero'}>
