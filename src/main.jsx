@@ -13,6 +13,7 @@ import './segol-system.css'
 import './brand-themes.css'
 import './contact-polish.css'
 import './water-premium.css'
+import './eternal-praise.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
