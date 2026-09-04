@@ -1,4 +1,5 @@
-import { ArrowRight, CheckCircle2, Droplets, Factory, ShieldCheck, Truck, Waves } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowRight, CheckCircle2, Droplets, Send, ShieldCheck, Truck, Waves } from 'lucide-react'
 import { Link } from 'react-router'
 import InnerPage from '../components/layout/InnerPage'
 
@@ -25,6 +26,20 @@ const process = [
 ]
 
 export default function Water() {
+  const [orderProduct, setOrderProduct] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+
+  const chooseProduct = (productName) => {
+    setOrderProduct(productName)
+    setSubmitted(false)
+    document.getElementById('order')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  const handleOrder = (event) => {
+    event.preventDefault()
+    setSubmitted(true)
+  }
+
   return (
     <InnerPage
       theme="water"
@@ -42,7 +57,7 @@ export default function Water() {
           <h1>Eternal Praise<br /><em>Water</em></h1>
           <p>Clean, refreshing water for everyday life — from homes and offices to hospitality, celebrations and business supply.</p>
           <div className="ep-water-actions">
-            <Link className="button ep-primary-button" to="/contact">Place an order <ArrowRight size={17} /></Link>
+            <a className="button ep-primary-button" href="#order">Place an order <ArrowRight size={17} /></a>
             <Link className="button ep-outline-button" to="/contact">Contact us</Link>
           </div>
         </div>
@@ -58,9 +73,47 @@ export default function Water() {
           {products.map((product) => (
             <article className="ep-product-card" key={product.name}>
               <div className="ep-product-image"><img src={product.image} alt={product.name} /><span>{product.tag}</span></div>
-              <div className="ep-product-copy"><h3>{product.name}</h3><p>{product.description}</p><Link to="/contact">Order / enquire <ArrowRight size={16} /></Link></div>
+              <div className="ep-product-copy"><h3>{product.name}</h3><p>{product.description}</p><button type="button" onClick={() => chooseProduct(product.name)}>Order / enquire <ArrowRight size={16} /></button></div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="ep-order-strip" aria-labelledby="order-heading">
+        <div className="ep-order-strip-inner">
+          <div>
+            <span className="section-tag">ETERNAL PRAISE / ORDER</span>
+            <h2 id="order-heading">Let&apos;s get your water sorted.</h2>
+            <p>Tell us what you need and the team can follow up with the right product, quantity and delivery details. This demo keeps the enquiry flow simple and ready to connect to the client&apos;s real ordering system later.</p>
+            <div className="ep-order-options">
+              <div className="ep-order-option"><strong>Home &amp; personal</strong><span>Everyday hydration and household supply.</span></div>
+              <div className="ep-order-option"><strong>Office &amp; business</strong><span>Regular supply for teams, workplaces and operations.</span></div>
+              <div className="ep-order-option"><strong>Events &amp; bulk</strong><span>Water for celebrations, hospitality and larger needs.</span></div>
+            </div>
+          </div>
+          <a className="button" href="#order-form">Start an enquiry <ArrowRight size={17} /></a>
+        </div>
+      </section>
+
+      <section className="ep-order-form-section" id="order-form">
+        <div className="ep-order-form-wrap">
+          <span className="section-tag">ORDER / ENQUIRE</span>
+          <h2>Tell us what you need.</h2>
+          <p>Complete the form below and we&apos;ll have the information needed to respond. No prices or delivery areas are assumed here — those can be connected to approved Eternal Praise information before launch.</p>
+          <form onSubmit={handleOrder}>
+            <div className="ep-order-grid">
+              <div className="ep-order-field"><label htmlFor="order-name">FULL NAME *</label><input id="order-name" name="name" required placeholder="Your full name" /></div>
+              <div className="ep-order-field"><label htmlFor="order-phone">PHONE NUMBER *</label><input id="order-phone" name="phone" type="tel" required placeholder="Your phone number" /></div>
+              <div className="ep-order-field"><label htmlFor="order-email">EMAIL ADDRESS</label><input id="order-email" name="email" type="email" placeholder="you@example.com" /></div>
+              <div className="ep-order-field"><label htmlFor="order-type">ORDER TYPE *</label><select id="order-type" name="orderType" required defaultValue=""><option value="" disabled>Select an option</option><option>Home &amp; personal</option><option>Office &amp; business</option><option>Events &amp; bulk</option><option>Distributor / partnership</option></select></div>
+              <div className="ep-order-field"><label htmlFor="order-product">PRODUCT *</label><select id="order-product" name="product" required value={orderProduct} onChange={(event) => { setOrderProduct(event.target.value); setSubmitted(false) }}><option value="" disabled>Select a product</option>{products.map((product) => <option key={product.name}>{product.name}</option>)}</select></div>
+              <div className="ep-order-field"><label htmlFor="order-quantity">QUANTITY / PACKS</label><input id="order-quantity" name="quantity" placeholder="e.g. 10 packs" /></div>
+              <div className="ep-order-field full"><label htmlFor="order-location">DELIVERY LOCATION *</label><input id="order-location" name="location" required placeholder="City / area" /></div>
+              <div className="ep-order-field full"><label htmlFor="order-message">MESSAGE</label><textarea id="order-message" name="message" placeholder="Tell us anything else about your order or enquiry..." /></div>
+            </div>
+            <button className="button ep-order-submit" type="submit"><Send size={17} /> Send order enquiry</button>
+            {submitted && <div className="ep-order-success" role="status"><CheckCircle2 size={18} /> Thanks — your order enquiry has been captured in this demo. The next step is to connect this form to Eternal Praise&apos;s real phone, email, WhatsApp or ordering backend.</div>}
+          </form>
         </div>
       </section>
 
@@ -80,7 +133,7 @@ export default function Water() {
       </section>
 
       <section className="ep-health">
-        <div className="ep-health-copy"><span className="section-tag">HEALTH / HYDRATION</span><h2>Make hydration part of <span>every day.</span></h2><p>Water is a simple part of healthy daily routines. This section gives Eternal Praise room for useful hydration education, practical tips and future brand content.</p><Link className="ep-text-link" to="/contact">Talk to us <ArrowRight size={16} /></Link></div>
+        <div className="ep-health-copy"><span className="section-tag">HEALTH / HYDRATION</span><h2>Make hydration part of <span>every day.</span></h2><p>Water is a simple part of healthy daily routines. This section gives Eternal Praise room for useful hydration education, practical tips and future brand content.</p><a className="ep-text-link" href="#order">Talk to us <ArrowRight size={16} /></a></div>
         <div className="ep-health-card"><Waves size={30} /><strong>PURE</strong><span>REFRESH · HYDRATE · REPEAT</span></div>
       </section>
 
