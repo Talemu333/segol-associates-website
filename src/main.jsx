@@ -9,6 +9,7 @@ import './brands-hub.css'
 import './project-proof.css'
 import './projects.css'
 import './brand-photo-polish.css'
+import './segol-system.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
