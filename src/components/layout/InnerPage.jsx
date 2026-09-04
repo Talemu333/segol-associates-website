@@ -3,9 +3,11 @@ import { Link } from 'react-router'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
 
-export default function InnerPage({ eyebrow, title, accent, intro, children, dark = false }) {
+export default function InnerPage({ eyebrow, title, accent, intro, children, dark = false, theme = 'segol' }) {
+  const themeClass = theme === 'segol' ? '' : ` brand-site brand-site-${theme}`
+
   return (
-    <div className="inner-site">
+    <div className={`inner-site${themeClass}`}>
       <SiteHeader />
       <main>
         <section className={dark ? 'inner-hero dark-inner' : 'inner-hero'}>
