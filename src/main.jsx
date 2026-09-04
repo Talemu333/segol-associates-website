@@ -8,6 +8,7 @@ import './home-polish.css'
 import './brands-hub.css'
 import './project-proof.css'
 import './projects.css'
+import './brand-photo-polish.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
