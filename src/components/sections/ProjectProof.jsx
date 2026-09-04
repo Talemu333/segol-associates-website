@@ -76,7 +76,10 @@ export default function ProjectProof() {
           <h3>From the first plan to the final handover.</h3>
           <p>For the launch version, this area will become a detailed portfolio with project scope, client, location, timeline, photographs and outcomes — so serious prospects can evaluate Segol before making contact.</p>
         </div>
-        <Link className="button dark-button" to="/services/construction">See construction capability <ArrowRight size={17} /></Link>
+        <div className="proof-banner-actions">
+          <Link className="button dark-button" to="/projects">View full project portfolio <ArrowRight size={17} /></Link>
+          <Link className="text-link" to="/services/construction">Explore construction capability <ArrowRight size={16} /></Link>
+        </div>
       </div>
 
       <div className="proof-points section">
