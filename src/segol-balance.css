@@ -1,0 +1,19 @@
+/* Segol homepage balance: position the company as a multidisciplinary delivery partner. */
+.segol-capability-band{background:#17202a;color:#f7f3eb;padding:96px 0}
+.segol-capability-head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:end;margin-bottom:42px}
+.segol-capability-head .section-tag{color:#c99a62}
+.segol-capability-head h2{font-size:clamp(2.5rem,5vw,5rem);line-height:.94;margin:14px 0 0;letter-spacing:-.05em}
+.segol-capability-head h2 span{color:#c99a62}
+.segol-capability-head p{color:#c7cbd0;max-width:650px;font-size:1.05rem;line-height:1.8;margin:0}
+.segol-capability-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16)}
+.segol-capability-card{position:relative;min-height:360px;padding:30px;background:#202a34;overflow:hidden;transition:transform .25s ease,background .25s ease}
+.segol-capability-card:hover{transform:translateY(-5px);background:#27333f}
+.segol-capability-card img{width:100%;height:150px;object-fit:cover;display:block;margin-bottom:24px;filter:saturate(.72)}
+.segol-capability-number{font-size:.72rem;letter-spacing:.16em;color:#c99a62;font-weight:700}
+.segol-capability-card h3{font-size:1.25rem;margin:9px 0 10px;color:#fff}
+.segol-capability-card p{font-size:.9rem;line-height:1.65;color:#bdc3c9;margin:0}
+.segol-capability-link{display:inline-flex;align-items:center;gap:7px;margin-top:18px;color:#f7f3eb;text-decoration:none;font-size:.82rem;font-weight:700}
+.segol-capability-link:hover{color:#c99a62}
+@media (max-width:900px){.segol-capability-head{grid-template-columns:1fr;gap:22px}.segol-capability-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.segol-capability-band{padding:70px 0}.segol-capability-grid{grid-template-columns:1fr}.segol-capability-card{min-height:auto}.segol-capability-card img{height:190px}}
+@media (prefers-reduced-motion:reduce){.segol-capability-card{transition:none}.segol-capability-card:hover{transform:none}}
