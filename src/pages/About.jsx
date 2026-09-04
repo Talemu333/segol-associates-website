@@ -4,7 +4,7 @@ import InnerPage from '../components/layout/InnerPage'
 
 const principles = [
   ['01', 'Clarity', 'We bring structure to complex work so teams can understand priorities, responsibilities and the path ahead.', Compass],
-  ['02', 'Coordination', 'We connect people, activities and decisions so that planning does not sit separately from execution.', Users],
+  ['02', 'Coordination', 'We connect people, activities and decisions so planning stays closely linked to execution.', Users],
   ['03', 'Accountability', 'We value visible progress, clear ownership and disciplined follow-through from start to finish.', ShieldCheck],
   ['04', 'Practicality', 'Our thinking is grounded in the realities of projects, field operations, construction and professional development.', Target],
 ]
@@ -14,6 +14,12 @@ const capabilities = [
   ['02', 'Oil Field Planning & Management', 'Structured planning and execution support for field activities and operational requirements.', '/services/oil-field-planning'],
   ['03', 'Construction Delivery', 'From design intent through execution, completion and handover.', '/services/construction'],
   ['04', 'Project Management Training', 'Practical development programmes covering project management, Microsoft Project and Fast Track Project Management.', '/training'],
+]
+
+const reasons = [
+  ['01', 'One delivery perspective', 'Different disciplines, connected by one practical approach to planning, coordination and execution.'],
+  ['02', 'Built for real work', 'Our thinking is designed to remain useful when projects meet deadlines, constraints and changing conditions.'],
+  ['03', 'Clear communication', 'We believe good project delivery depends on making responsibilities, progress and decisions visible.'],
 ]
 
 export default function About() {
@@ -60,10 +66,19 @@ export default function About() {
       <div className="about-perspective-copy"><span className="section-tag">04 / OUR PERSPECTIVE</span><h2>Different challenges.<br /><span>Same standard.</span></h2><p className="lead">The sector may change, but the fundamentals of good delivery remain remarkably consistent.</p><div className="about-checks"><div><CheckCircle2 size={18}/><span>Understand the objective</span></div><div><CheckCircle2 size={18}/><span>Build a practical plan</span></div><div><CheckCircle2 size={18}/><span>Coordinate the moving parts</span></div><div><CheckCircle2 size={18}/><span>Make progress visible</span></div></div></div>
     </section>
 
+    <section className="about-reasons">
+      <div className="inner-section">
+        <div className="about-section-heading"><span className="section-tag">05 / WHY SEGOL</span><h2>A partner focused on <span>how work gets done.</span></h2><p>We bring a disciplined perspective without making the process unnecessarily complicated.</p></div>
+        <div className="about-reasons-grid">
+          {reasons.map(([number, title, text]) => <article key={title} className="about-reason-card"><span>{number}</span><h3>{title}</h3><p>{text}</p><ArrowRight size={18}/></article>)}
+        </div>
+      </div>
+    </section>
+
     <section className="about-values-strip">
       <div className="inner-section about-values-inner"><div className="about-value-mark"><Eye size={28}/></div><div><span className="section-tag">THE SEGOL STANDARD</span><h2>Useful. <span>Measured. Responsible.</span></h2><p>We aim to leave clients with more clarity, stronger coordination and greater confidence in the work ahead.</p></div></div>
     </section>
 
-    <section className="inner-section about-cta"><div><span className="section-tag">05 / LET&apos;S WORK TOGETHER</span><h2>Have a project,<br /><span>challenge or capability gap?</span></h2></div><Link className="button dark-button" to="/contact">Start a conversation <ArrowRight size={17}/></Link></section>
+    <section className="inner-section about-cta"><div><span className="section-tag">06 / LET&apos;S WORK TOGETHER</span><h2>Have a project,<br /><span>challenge or capability gap?</span></h2></div><Link className="button dark-button" to="/contact">Start a conversation <ArrowRight size={17}/></Link></section>
   </InnerPage>
 }
