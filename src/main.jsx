@@ -11,6 +11,7 @@ import './projects.css'
 import './brand-photo-polish.css'
 import './segol-system.css'
 import './brand-themes.css'
+import './contact-polish.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
