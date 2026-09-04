@@ -23,6 +23,7 @@ import './topix-enquiry-polish.css'
 import './topix-color-consistency.css'
 import './segol-balance.css'
 import './capability-detail.css'
+import './about-premium.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
