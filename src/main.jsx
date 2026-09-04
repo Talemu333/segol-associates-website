@@ -20,6 +20,7 @@ import './topix-premium.css'
 import './topix-packages.css'
 import './topix-gallery.css'
 import './topix-enquiry-polish.css'
+import './topix-color-consistency.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
