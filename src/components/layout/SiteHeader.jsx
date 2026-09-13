@@ -20,7 +20,7 @@ export default function SiteHeader() {
   return (
     <header className="inner-navbar">
       <Link className="brand" to="/" onClick={close}>
-        <span className="brand-mark">S</span>
+        <img src="/segol-mark.svg" alt="Segol Associates" className="brand-logo" />
         <span><strong>SEGOL</strong><small>ASSOCIATES</small></span>
       </Link>
       <nav className={open ? 'inner-nav-links open' : 'inner-nav-links'}>
